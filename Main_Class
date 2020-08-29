@@ -1,0 +1,39 @@
+public class Main {
+
+public static void main(String[] args) {
+// create Object of Graph_List class
+        Graph_List graph_list = new Graph_List();
+// create nodes to add to graph        
+        Node a = new Node("A");  
+        Node b = new Node("B");
+        Node c = new Node("C");
+        Node d = new Node("D");
+        Node e = new Node("E");
+        Node f = new Node("F");
+        Node g = new Node("G");
+// add nodes to graph        
+        graph_list.add_node(a);
+        graph_list.add_node(b);
+        graph_list.add_node(c);
+        graph_list.add_node(d);
+        graph_list.add_node(e);
+        graph_list.add_node(f);
+        graph_list.add_node(g);
+// add edges between nodes with a distance between them
+        graph_list.add_edges(a,b,6); 
+        graph_list.add_edges(a,c,5);
+        graph_list.add_edges(a,d,5);
+        graph_list.add_edges(b,e,-1);
+        graph_list.add_edges(c,b,-2);
+        graph_list.add_edges(e,c,3);
+        graph_list.add_edges(d,c,-2);
+        graph_list.add_edges(d,f,-1);
+        graph_list.add_edges(e,g,3);
+        graph_list.add_edges(f,g,3);
+// run the modified Algorithm of Dijkstra to find the shortest path to every node from a source node        
+         graph_list.dikjstra(a);
+// print the shortest path to every node from a source node         
+         graph_list.graph.forEach(x-> System.out.println(x.toString()));
+
+}
+}
