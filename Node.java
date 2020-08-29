@@ -1,9 +1,11 @@
 import java.util.HashMap;
 import java.util.Map;
 
+// class that represent nodes in the graph 
 public class Node implements Comparable<Node> {
     String node_value;
     int cost;
+// map for storing edges between nodes
     Map<Node,Integer> edges;
     boolean visited;
 
