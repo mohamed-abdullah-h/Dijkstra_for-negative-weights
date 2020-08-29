@@ -1,7 +1,11 @@
 import java.util.*;
 
+// class for represent a graph and containing the dikjstra method
+
 public class Graph_List {
+// set for represent a graph
     HashSet<Node> graph;
+// priority queue for storing Unvisited nodes and retreiving the minimum nodes cost
     private PriorityQueue<Node> queue;
 
     public Graph_List() {
@@ -9,16 +13,16 @@ public class Graph_List {
         queue = new PriorityQueue<>();
 
     }
-
-
+// add nodes to graph
     public void add_node(Node node) {
         graph.add(node);
     }
-
+// add edges between nodes 
     public void add_edges(Node from, Node to, int dist) {
         from.add_edge(to, dist);
     }
 
+// the modified Dijkstra Algorithm  
     public void dikjstra(Node node_name) {
 
         node_name.cost = 0;
@@ -34,6 +38,8 @@ public class Graph_List {
                 }
                 if (child.cost > parent.cost + parent.edges.get(child)) {
                     child.cost = parent.cost + parent.edges.get(child);
+                    // this is the new line which inserted to the Algorithm
+                    // which indicate that if we modified cost for a visited node we adding it again to the queue to modify each node_cost that depend on it  
                     if (child.visited) queue.add(child);
                 }
             }
